@@ -7,9 +7,26 @@ get_completions() {
 	source "${1}"
 
 	# print the completed commands
-	while read; do
-		local funcargv=( ${REPLY##* -F} )
-		echo ${funcargv[@]:1}
+	while read -a args; do
+		set -- "${args[@]}"
+
+		[[ ${1} == complete ]] || continue
+		shift
+
+		while :; do
+			# eat the options, reach the command!
+			case "${1}" in
+				-[oAGWFCXPS])
+					shift;; # eat the argument :)
+				-*)
+					;;
+				*)
+					break;;
+			esac
+			shift
+		done
+
+		echo "${@}"
 	done < <(complete -p)
 }
 
