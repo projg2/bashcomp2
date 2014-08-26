@@ -35,6 +35,9 @@ main() {
 
 	local f
 	for f in "${compdir}"/*; do
+		# ignore directories and other non-files
+		[[ ! -f ${f} ]] && continue
+
 		# skip the common code file
 		# (in case we're run in /usr/share/bash-completion)
 		[[ ${f##*/} == bash_completion ]] && continue
