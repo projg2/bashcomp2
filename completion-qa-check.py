@@ -27,7 +27,12 @@ def main(*args):
 				print('%s: duplicate completion for %s (previously in %s)'
 						% (bn, c, compdb[c]))
 			compdb[c] = rpath
-			all_cmds.add(c)
+
+			if c.startswith('/'):
+				print('%s: absulute paths in completions can not work (have: %s)'
+						% (bn, c))
+			else:
+				all_cmds.add(c)
 
 	for c in all_cmds:
 		if c not in all_files:
