@@ -1,0 +1,34 @@
+#!/bin/bash
+# Get completions added by different files. Output in format:
+#  <path> <commands>...
+
+get_completions() {
+	# source the file
+	source "${1}"
+
+	# print the completed commands
+	while read; do
+		local funcargv=( ${REPLY##* -F} )
+		echo ${funcargv[@]:1}
+	done < <(complete -p)
+}
+
+main() {
+	compdir=${1:-$(${PKG_CONFIG:-pkg-config} --variable=completionsdir bash-completion)}
+
+	local f
+	for f in "${compdir}"/*; do
+		local compls=( $(get_completions "${f}") )
+
+		echo "${f} ${compls[*]}"
+	done
+}
+
+# load the global helpers
+source /usr/share/bash-completion/bash_completion
+
+# clean up existing completions
+complete -r
+
+# start the main function
+main "${@}"
