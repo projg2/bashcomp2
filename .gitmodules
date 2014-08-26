@@ -1,3 +1,3 @@
 [submodule "upstream-bash-completion"]
 	path = upstream-bash-completion
-	url = git://git.debian.org/git/bash-completion/bash-completion.git
+	url = ../bash-completion-for-gentoo
