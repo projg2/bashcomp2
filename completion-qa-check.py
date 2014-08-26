@@ -18,7 +18,7 @@ def main(*args):
 		all_files.add(bn)
 
 		if not compls:
-			print('%s: does not declare any completions' % bn)
+			print('%s: does not declare any completions (load error?)' % bn)
 		elif bn not in compls:
 			print('%s: does not declare completion for %s' % (bn, bn))
 
