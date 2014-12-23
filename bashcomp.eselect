@@ -3,7 +3,8 @@
 # Distributed under the terms of the GNU GPL version 2 or later
 
 DESCRIPTION="Manage contributed bash-completion scripts"
-MAINTAINER="eselect@gentoo.org"
+MAINTAINER="mgorny@gentoo.org"
+VERSION="2.0.1"
 
 COMPLETIONS_DIR=${EROOT%/}/usr/share/bash-completion/completions
 # blacklist for system-wide disables
