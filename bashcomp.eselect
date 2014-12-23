@@ -331,6 +331,8 @@ do_prune() {
 	)
 
 	for f in "${files[@]}"; do
+		[[ -f ${f} ]] || continue
+
 		local tmpfile=${f}.new
 
 		# try to write it
