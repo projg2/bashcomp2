@@ -21,7 +21,7 @@ $(PATCH): upstream-bash-completion/bash_completion
 dist: $(PATCH)
 	rm -rf $(PKG)
 	install -m755 -d $(PKG)
-	install -m644 bashcomp.eselect bashcomp.eselect.5 $(PATCH) $(PKG)/
+	install -m644 Makefile bashcomp.eselect bashcomp.eselect.5 $(PATCH) $(PKG)/
 	tar -c $(PKG) | gzip -9 > $(PKG).tar.gz
 	rm -rf $(PKG)
 
