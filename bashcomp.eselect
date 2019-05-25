@@ -1,10 +1,10 @@
 # -*-eselect-*-  vim: ft=eselect
-# Copyright 2005-2013 Gentoo Foundation
+# Copyright 2005-2019 Gentoo Authors
 # Distributed under the terms of the GNU GPL version 2 or later
 
 DESCRIPTION="Manage contributed bash-completion scripts"
 MAINTAINER="mgorny@gentoo.org"
-VERSION="2.0.1"
+VERSION="2.0.3"
 
 COMPLETIONS_DIR=${EROOT%/}/usr/share/bash-completion/completions
 # blacklist for system-wide disables
